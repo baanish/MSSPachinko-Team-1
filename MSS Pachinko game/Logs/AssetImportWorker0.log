@@ -248,3 +248,4 @@ Received Import Request.
 Start importing Assets/Materials/Sea.mat using Guid(b1455f180d3701f45a2549677f03f625) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f41eec42a5b271a00fa40fb5a01fcb66') in 0.161143 seconds 
   Import took 0.166153 seconds .
 
+AssetImportWorkerClient::OnTransportError - code=2 error=End of file
