@@ -250,13 +250,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 110101839}
-  m_LocalRotation: {x: 0, y: 0.2588191, z: 0, w: 0.9659258}
+  m_LocalRotation: {x: 0.9659258, y: 0, z: -0.2588191, w: 0}
   m_LocalPosition: {x: -2.72, y: 0.5, z: -6.94}
   m_LocalScale: {x: 4, y: 0.9, z: 0.5}
   m_Children: []
   m_Father: {fileID: 1241954801}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 30, z: 0}
+  m_LocalEulerAnglesHint: {x: 180, y: 30, z: 0}
 --- !u!114 &110101841
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -270,7 +270,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   restPosition: 0
-  pressedPosition: -45
+  pressedPosition: 45
   hitStrength: 20000
   flipperDamper: 100
   inputKey: 97
@@ -284,9 +284,9 @@ HingeJoint:
   m_ConnectedBody: {fileID: 0}
   m_ConnectedArticulationBody: {fileID: 0}
   m_Anchor: {x: -0.5, y: 0.25, z: 0}
-  m_Axis: {x: 1, y: 0, z: 0}
+  m_Axis: {x: 0, y: 1, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -4.4520507, y: 0.725, z: -5.9399996}
+  m_ConnectedAnchor: {x: -4.4520507, y: 0.275, z: -5.9399996}
   m_UseSpring: 0
   m_Spring:
     spring: 0
@@ -299,8 +299,8 @@ HingeJoint:
     freeSpin: 0
   m_UseLimits: 1
   m_Limits:
-    min: 0
-    max: 0
+    min: 1.7634742
+    max: 45.513992
     bounciness: 0
     bounceMinVelocity: 0.2
     contactDistance: 0
@@ -321,7 +321,7 @@ Rigidbody:
   m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 1
   m_Constraints: 0
@@ -490,6 +490,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1331895516}
     m_Modifications:
+    - target: {fileID: 1904840456745669056, guid: 24c698ab8d6059d448e389e59e742e92, type: 3}
+      propertyPath: m_UseGravity
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1904840456745669058, guid: 24c698ab8d6059d448e389e59e742e92, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -549,6 +553,10 @@ PrefabInstance:
     - target: {fileID: 1904840456745669062, guid: 24c698ab8d6059d448e389e59e742e92, type: 3}
       propertyPath: m_Name
       value: Ball
+      objectReference: {fileID: 0}
+    - target: {fileID: 6673521852734223320, guid: 24c698ab8d6059d448e389e59e742e92, type: 3}
+      propertyPath: gravity
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 24c698ab8d6059d448e389e59e742e92, type: 3}
@@ -1000,13 +1008,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1019928884}
-  m_LocalRotation: {x: 0, y: -0.258819, z: 0, w: 0.9659259}
+  m_LocalRotation: {x: 0, y: -0.9659259, z: 0, w: -0.258819}
   m_LocalPosition: {x: 2.78, y: 0.5, z: -6.93}
   m_LocalScale: {x: 4, y: 0.9, z: 0.5}
   m_Children: []
   m_Father: {fileID: 1241954801}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: -30, z: 0}
+  m_LocalEulerAnglesHint: {x: 180, y: -30, z: 180}
 --- !u!114 &1019928886
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1036,7 +1044,7 @@ HingeJoint:
   m_Anchor: {x: -0.5, y: 0.25, z: 0}
   m_Axis: {x: 0, y: 1, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 1.0479491, y: 0.725, z: -7.93}
+  m_ConnectedAnchor: {x: 4.512051, y: 0.725, z: -5.93}
   m_UseSpring: 0
   m_Spring:
     spring: 0
@@ -1049,8 +1057,8 @@ HingeJoint:
     freeSpin: 0
   m_UseLimits: 1
   m_Limits:
-    min: 0
-    max: 0
+    min: 1.7634742
+    max: 45.513992
     bounciness: 0
     bounceMinVelocity: 0.2
     contactDistance: 0
@@ -1071,7 +1079,7 @@ Rigidbody:
   m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 1
   m_Constraints: 0

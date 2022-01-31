@@ -5,6 +5,7 @@ public class BallController : MonoBehaviour
 {
 
     public float speed;
+    public float gravity;
     //public AudioSource audioPlayer;
     //public AudioClip bounceClip;
     // Create private references to the rigidbody component on the ball
@@ -23,7 +24,8 @@ public class BallController : MonoBehaviour
     // Each physics step..
     void FixedUpdate()
     {
-
+        // add gravity on the z-axis using the gravity variable and deltaTime
+        rb.AddForce(0, 0, -gravity * Time.deltaTime);
     }
 
     void OnCollisionEnter(Collision myCollision)
