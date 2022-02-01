@@ -56,4 +56,5 @@ public class BallController : MonoBehaviour
             rb.AddForce(airSpeed, 0, 0, ForceMode.Impulse);
         }
     }
+
 }
