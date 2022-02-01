@@ -21,8 +21,6 @@ public class GameManagerScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        ball.GetComponent<GameObject>();
-        ballController = ball.GetComponent<BallController>();
         //Iceberg1.GetComponent<GameObject>();
         Iceberg1.transform.position = new Vector3(1.46f, -1, -1.87f);
         Iceberg2.transform.position = new Vector3(6.73f, -1, -1.99f);
@@ -56,7 +54,8 @@ public class GameManagerScript : MonoBehaviour
 
     void debuffBall()
     {
-        int debuffChoice = Random.Range(1, 4);
+        findBall();
+        int debuffChoice = Random.Range(1, 5);
         if (debuffChoice == 1)
         {
             // Ball heavier and harder to keep alive
@@ -91,6 +90,7 @@ public class GameManagerScript : MonoBehaviour
 
     void resetDebuffs()
     {
+        findBall();
         ballController.gravity = 100;
         ballController.airSpeed = 4;
         if (icebergsDeployed)
@@ -103,5 +103,13 @@ public class GameManagerScript : MonoBehaviour
             Iceberg6.transform.position = new Vector3(1.74f, -1, 4.43f);
             icebergsDeployed = false;
         }
+    }
+
+    void findBall()
+    {
+        // find gameobject with tag "Ball"
+        ball = GameObject.FindGameObjectWithTag("Ball");
+        // get the ball controller script
+        ballController = ball.GetComponent<BallController>();
     }
 }
