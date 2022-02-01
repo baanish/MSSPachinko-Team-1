@@ -36,3 +36,6 @@ sysinfo.txt
 *.apk
 *.unitypackage
 *.log
+MSS Pachinko game/Logs/AssetImportWorker0.log
+MSS Pachinko game/Logs/shadercompiler-AssetImportWorker0.log
+MSS Pachinko game/Logs/shadercompiler-UnityShaderCompiler.exe0.log
