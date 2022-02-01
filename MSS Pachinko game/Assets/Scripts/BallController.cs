@@ -32,6 +32,9 @@ public class BallController : MonoBehaviour
     {
         // add gravity on the z-axis using the gravity variable and deltaTime
         rb.AddForce(0, 0, -gravity * Time.deltaTime);
+
+        // make the y rotation of the ball relative to the direction of the velocity
+        transform.rotation = Quaternion.LookRotation(rb.velocity);
     }
 
     void OnCollisionEnter(Collision myCollision)
@@ -39,7 +42,7 @@ public class BallController : MonoBehaviour
 
         //Debug.Log(myCollision.relativeVelocity.magnitude);
         //only generate collision sound on harder hits
-        if (myCollision.relativeVelocity.magnitude > 10)
+        if (myCollision.relativeVelocity.magnitude > 1)
         {
             //audioPlayer.PlayOneShot(bounceClip);
         }
@@ -61,7 +64,7 @@ public class BallController : MonoBehaviour
         if (other.gameObject.CompareTag("DeathZone"))
         {
             Destroy(gameObject);
-            GameObject newBall = Instantiate(ballPrefab, new Vector3(8.5f, 0.5f, -1.63f), Quaternion.identity);
+            GameObject newBall = Instantiate(ballPrefab, new Vector3(8.5f, 0.0f, -1.63f), Quaternion.identity);
             // enable the ballController script on the new ball
             newBall.GetComponent<BallController>().enabled = true;
         }

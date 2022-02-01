@@ -8,6 +8,7 @@ TagManager:
   - LeftAirCurrent
   - RightAirCurrent
   - DeathZone
+  - Sea
   layers:
   - Default
   - TransparentFX
