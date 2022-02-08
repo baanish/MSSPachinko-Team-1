@@ -16,6 +16,7 @@ public class GameManagerScript : MonoBehaviour
     public BallController ballController = null;
     public GameObject icebergs = null;
     public TextMeshProUGUI debuffText = null;
+    public TextMeshProUGUI timeText = null;
 
     // Start is called before the first frame update
     void Start()
@@ -24,12 +25,14 @@ public class GameManagerScript : MonoBehaviour
         icebergs = GameObject.Find("Icebergs");
         icebergs.SetActive(false);
         //debuffText = GetComponent<TextMeshProUGUI>();
-        debuffText.text = "Smooth sailing!";
+        debuffText.text = "Ship Status: Smooth sailing!";
+        timeText.text = "Time: " + (int)(Time.time);
     }
 
     // Update is called once per frame
     void Update()
     {
+        timeText.text = "Time: " + (int)(Time.time);
         if (Time.time - nextDebuffTime > 0)
         {
             debuffTime = Random.Range(8,12);
@@ -58,28 +61,28 @@ public class GameManagerScript : MonoBehaviour
             // Ball heavier and harder to keep alive
             Debug.Log("Debuff 1");
             ballController.gravity = 750;
-            debuffText.text = "The wind is getting stronger!";
+            debuffText.text = "Ship Status: The wind is getting stronger!";
         }
         if (debuffChoice == 2)
         {
             // Ball is lighter and slower, hard to control
             Debug.Log("Debuff 2");
             ballController.gravity = 5;
-            debuffText.text = "The wind is getting weaker!";
+            debuffText.text = "Ship Status: The wind is getting weaker!";
         }
         if (debuffChoice == 3)
         {
             // Makes air currents more dangerous
             Debug.Log("Debuff 3");
             ballController.airSpeed = 24;
-            debuffText.text = "Beware strong air currents!";
+            debuffText.text = "Ship Status: Beware strong air currents!";
         }
         if (debuffChoice == 4)
         {
             Debug.Log("Debuff 4");
             icebergs.SetActive(true);
             icebergsDeployed = true;
-            debuffText.text = "Icebergs ahead!";
+            debuffText.text = "Ship Status: Icebergs ahead!";
 
         }
     }
@@ -94,7 +97,7 @@ public class GameManagerScript : MonoBehaviour
             icebergs.SetActive(false);
             icebergsDeployed = false;
         }
-        debuffText.text = "Smooth sailing!";
+        debuffText.text = "Ship Status: Smooth sailing!";
     }
 
     void findBall()
