@@ -1,6 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
+
 
 public class GameManagerScript : MonoBehaviour
 {
@@ -12,6 +15,7 @@ public class GameManagerScript : MonoBehaviour
     public GameObject ball = null;
     public BallController ballController = null;
     public GameObject icebergs = null;
+    public TextMeshProUGUI debuffText = null;
 
     // Start is called before the first frame update
     void Start()
@@ -19,6 +23,8 @@ public class GameManagerScript : MonoBehaviour
         // find icebergs object
         icebergs = GameObject.Find("Icebergs");
         icebergs.SetActive(false);
+        //debuffText = GetComponent<TextMeshProUGUI>();
+        debuffText.text = "Smooth sailing!";
     }
 
     // Update is called once per frame
@@ -52,24 +58,28 @@ public class GameManagerScript : MonoBehaviour
             // Ball heavier and harder to keep alive
             Debug.Log("Debuff 1");
             ballController.gravity = 750;
+            debuffText.text = "The wind is getting stronger!";
         }
         if (debuffChoice == 2)
         {
             // Ball is lighter and slower, hard to control
             Debug.Log("Debuff 2");
             ballController.gravity = 5;
+            debuffText.text = "The wind is getting weaker!";
         }
         if (debuffChoice == 3)
         {
             // Makes air currents more dangerous
             Debug.Log("Debuff 3");
             ballController.airSpeed = 24;
+            debuffText.text = "Beware strong air currents!";
         }
         if (debuffChoice == 4)
         {
             Debug.Log("Debuff 4");
             icebergs.SetActive(true);
             icebergsDeployed = true;
+            debuffText.text = "Icebergs ahead!";
 
         }
     }
@@ -84,6 +94,7 @@ public class GameManagerScript : MonoBehaviour
             icebergs.SetActive(false);
             icebergsDeployed = false;
         }
+        debuffText.text = "Smooth sailing!";
     }
 
     void findBall()
